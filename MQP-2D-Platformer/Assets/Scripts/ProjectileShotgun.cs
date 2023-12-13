@@ -3,7 +3,7 @@ using UnityEngine;
 public class ProjectileShotgun : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private float vertSpeed = 0f; // Default to 0
+    [SerializeField] private float vertSpeed; // Default to 0
     private bool hit;
     private float direction = 1;
     [SerializeField] private float maxFlightTime;

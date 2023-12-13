@@ -38,9 +38,9 @@ public class PlayerShooting : MonoBehaviour
         else if(activePrefab == "Shotgun"){
             GameObject projectile = Instantiate(shotgunPrefab, shootPoint.position, shootPoint.rotation);
             GameObject projectile1 = Instantiate(shotgunPrefab, shootPoint.position, shootPoint.rotation);
-            projectile1.GetComponent<ProjectileShotgun>().SetVertSpeed(1f);
+            projectile1.GetComponent<ProjectileShotgun>().SetVertSpeed(2f);
             GameObject projectile2 = Instantiate(shotgunPrefab, shootPoint.position, shootPoint.rotation);
-            projectile2.GetComponent<ProjectileShotgun>().SetVertSpeed(-1f);
+            projectile2.GetComponent<ProjectileShotgun>().SetVertSpeed(-2f);
         }
         cooldownTimer =0;
         
