@@ -3,12 +3,12 @@ using UnityEngine;
 public class ProjectileShotgun : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float vertSpeed; // Default to 0
+    private float vertSpeed = 0f; // Default to 0
     private bool hit;
-    private float direction = 1;
+    private float direction = 0;
     [SerializeField] private float maxFlightTime;
 
-    private float flightTime = 0f;
+    [SerializeField] private float flightTime = 0f;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -30,9 +30,9 @@ public class ProjectileShotgun : MonoBehaviour
         if (flightTime >= maxFlightTime) Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == GameObject.Find("Player")) return;
+        if (collision.gameObject.CompareTag("Player")) return;
         hit = true;
         Destroy(gameObject);
     }

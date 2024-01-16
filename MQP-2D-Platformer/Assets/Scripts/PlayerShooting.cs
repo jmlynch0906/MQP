@@ -14,9 +14,15 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float attackTimer;
     private float cooldownTimer = Mathf.Infinity;
 
+    public SpriteRenderer sprite;
+
+    public int dir = 1;
     
  
-
+  void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && cooldownTimer > attackTimer)
@@ -29,18 +35,29 @@ public class PlayerShooting : MonoBehaviour
         }
 
         cooldownTimer +=Time.deltaTime;
+
+        if(sprite.flipX == true){
+            dir=-1;
+        }
+        else{
+            dir =1;
+        }
     }
 
     void Shoot()
     {   if(activePrefab == "Pistol"){
         GameObject projectile = Instantiate(pistolPrefab, shootPoint.position, shootPoint.rotation);
+        projectile.GetComponent<ProjectilePistol>().SetDirection(dir);
     }
         else if(activePrefab == "Shotgun"){
             GameObject projectile = Instantiate(shotgunPrefab, shootPoint.position, shootPoint.rotation);
+            projectile.GetComponent<ProjectileShotgun>().SetDirection(dir);
             GameObject projectile1 = Instantiate(shotgunPrefab, shootPoint.position, shootPoint.rotation);
             projectile1.GetComponent<ProjectileShotgun>().SetVertSpeed(2f);
+            projectile1.GetComponent<ProjectileShotgun>().SetDirection(dir);
             GameObject projectile2 = Instantiate(shotgunPrefab, shootPoint.position, shootPoint.rotation);
             projectile2.GetComponent<ProjectileShotgun>().SetVertSpeed(-2f);
+            projectile2.GetComponent<ProjectileShotgun>().SetDirection(dir);
         }
         cooldownTimer =0;
         

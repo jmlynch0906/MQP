@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - CinemachineTarget
+  - Enemy
+  - player bullet
+  - player
   layers:
   - Default
   - TransparentFX

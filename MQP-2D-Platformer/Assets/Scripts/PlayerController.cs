@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,10 +7,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator anim;
+    public SpriteRenderer sprite;
     public float speed = 5f;
     public float jumpHeight = 5f;
-    public bool isJumping;
+   [SerializeField] public bool isJumping;
     public AudioSource jumpSound;
+
+    public float horizontalInput = 0f;
+
+    [SerializeField] public float y = 0f;
+
     
     
     /*
@@ -26,14 +34,17 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         // Movement
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-
+        
+        y = rb.velocity.y;
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
@@ -41,6 +52,8 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
             jumpSound.Play();
         }
+
+        UpdateAnimation();
 
         // Dashing
        /* if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
@@ -50,11 +63,38 @@ public class PlayerController : MonoBehaviour
        */
     }
 
+    private void UpdateAnimation(){
+
+        if(horizontalInput>0f){
+            anim.SetBool("Running",true);
+            sprite.flipX = false;
+        }
+        else if (horizontalInput<0f){
+            anim.SetBool("Running",true);
+            sprite.flipX = true;
+        }
+        else{
+            anim.SetBool("Running",false);
+        }
+
+
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
+            anim.SetBool("Grounded",true);
+        }
+    }
+
+     private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isJumping = true;
+            anim.SetBool("Grounded",false);
         }
     }
     /*
