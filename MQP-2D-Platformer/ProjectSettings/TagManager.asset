@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - player bullet
   - player
+  - NPC
   layers:
   - Default
   - TransparentFX
