@@ -1,4 +1,5 @@
 using System;
+using EmergenceSDK.Samples.Examples;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
@@ -9,10 +10,12 @@ public class PlayerShooting : MonoBehaviour
 
    
 
-    private String activePrefab = "Pistol";
+    private String activePrefab = "none";
     public Transform shootPoint;
     [SerializeField] private float attackTimer;
     private float cooldownTimer = Mathf.Infinity;
+    private EquippedPersona currentPersona;
+
 
     public SpriteRenderer sprite;
 
@@ -22,16 +25,14 @@ public class PlayerShooting : MonoBehaviour
   void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        currentPersona = GetComponent<EquippedPersona>();
     }
     void Update()
     {
+        activePrefab = currentPersona.getName();
         if (Input.GetKeyDown(KeyCode.F) && cooldownTimer > attackTimer)
         {
             Shoot();
-        }
-
-        if(Input.GetKeyDown(KeyCode.E)) {
-            Swap();
         }
 
         cooldownTimer +=Time.deltaTime;
@@ -66,11 +67,7 @@ public class PlayerShooting : MonoBehaviour
         //projectileRb.velocity = shootPoint.right * projectileSpeed;
     }
 
-//weaponSwap for debug purposes
-    void Swap(){
-        if (activePrefab == "Pistol") activePrefab = "Shotgun";
-        else if (activePrefab == "Shotgun") activePrefab = "Pistol";
-    }
+
 
     // OnTriggerEnter2D is called when the Collider2D other enters the trigger
 /*    void OnTriggerEnter2D(Collider2D other)

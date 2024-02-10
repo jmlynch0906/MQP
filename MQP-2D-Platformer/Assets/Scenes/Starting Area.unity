@@ -1139,6 +1139,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411500040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3859817988653472929, guid: e75570eb5bb2c7542a4a651bab52c403, type: 3}
+  m_PrefabInstance: {fileID: 3599261009263570534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1420795464
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,6 +6379,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 551462494258846779, guid: e75570eb5bb2c7542a4a651bab52c403, type: 3}
   m_PrefabInstance: {fileID: 3599261009263570534}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035863308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411500040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be884cf16c2df7b47871401d4822fcee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2096987443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6394,6 +6411,18 @@ PrefabInstance:
       propertyPath: Configuration
       value: 
       objectReference: {fileID: 11400000, guid: c50dee9d33f04446fb471a2b7bac7278, type: 2}
+    - target: {fileID: 51037822, guid: d11676e3b1baadb4a84528313b89733e, type: 3}
+      propertyPath: EmergenceUIOpened.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 51037822, guid: d11676e3b1baadb4a84528313b89733e, type: 3}
+      propertyPath: EmergenceUIOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 51037822, guid: d11676e3b1baadb4a84528313b89733e, type: 3}
+      propertyPath: EmergenceUIOpened.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3122056887335212770, guid: d11676e3b1baadb4a84528313b89733e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6559,7 +6588,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3859817988653472929, guid: e75570eb5bb2c7542a4a651bab52c403, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 2035863308}
   m_SourcePrefab: {fileID: 100100000, guid: e75570eb5bb2c7542a4a651bab52c403, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

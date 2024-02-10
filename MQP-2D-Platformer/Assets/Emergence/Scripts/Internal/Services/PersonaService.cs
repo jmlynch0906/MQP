@@ -4,9 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using EmergenceSDK.Internal.Utils;
+using EmergenceSDK.Samples.Examples;
 using EmergenceSDK.Services;
 using EmergenceSDK.Types;
 using EmergenceSDK.Types.Responses;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace EmergenceSDK.Internal.Services
@@ -91,6 +94,12 @@ namespace EmergenceSDK.Internal.Services
             PersonasResponse personasResponse = SerializationHelper.Deserialize<PersonasResponse>(request.downloadHandler.text);
             WebRequestService.CleanupRequest(request);
             CurrentPersona = personasResponse.personas.FirstOrDefault(p => p.id == personasResponse.selected);
+            //these lines have been added by me, Jack, for the purpose of getting this damn thing to work
+            GameObject player = GameObject.Find("Player");
+            EquippedPersona playerPersona = player.GetComponent<EquippedPersona>();
+            playerPersona.SetPersona(CurrentPersona);
+
+            
             return new ServiceResponse<List<Persona>, Persona>(true, personasResponse.personas, CurrentPersona);
         }
 

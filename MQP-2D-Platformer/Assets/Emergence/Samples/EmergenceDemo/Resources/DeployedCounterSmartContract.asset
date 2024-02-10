@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contractAddress: 0xC9571AaF9EbCa8C08EC37D962310d0Ab9F8A5Dd2
   contract: {fileID: 11400000, guid: 9c227bd1f290f4d47abfa18faca8bd78, type: 2}
-  chain: {fileID: 11400000, guid: f83c7faeb452eab4c83051e3d97f008c, type: 2}
+  chain: {fileID: 11400000, guid: d9d142e8a09694e4db7ad9f5d2aa0dd2, type: 2}

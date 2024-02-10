@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using EmergenceSDK.Internal.Services;
 using UnityEngine;
@@ -20,13 +21,14 @@ namespace EmergenceSDK.Services
         /// </summary>
         public static T GetService<T>() where T : IEmergenceService
         {
+     
             return instance.services.OfType<T>().FirstOrDefault();
         }
+
 
         private void Awake()
         {
             instance = this;
-
             var personaService = new PersonaService();
             services.Add(personaService);
             var sessionService = new SessionService(personaService);
