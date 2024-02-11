@@ -27,10 +27,12 @@ public class BadGuyLife : MonoBehaviour
     }
 
     private void Die(){
-    deathSound.Play();
-    box.enabled = false;
-    sprite.enabled = false;
-    Invoke("DestroyEnemy",1f);
+        
+
+        deathSound.Play();
+        box.enabled = false;
+        sprite.enabled = false;
+        Invoke("DestroyEnemy",1f);
     }
 
     private void DestroyEnemy(){
