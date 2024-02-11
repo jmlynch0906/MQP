@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persona: 
+  player: {fileID: 1411500040}
 --- !u!4 &428240584
 Transform:
   m_ObjectHideFlags: 0

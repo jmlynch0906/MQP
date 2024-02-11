@@ -6,6 +6,7 @@ using UnityEngine;
 public class personaManager : MonoBehaviour
 {
     public string persona;
+    public GameObject player;
 
     // Ensure only one instance of personaManager exists
     private void Awake()
@@ -31,15 +32,21 @@ public class personaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EquippedPersona equippedPersonaScript = FindObjectOfType<EquippedPersona>();
-
-        if (equippedPersonaScript != null)
+        if (player != null)
         {
-            if(equippedPersonaScript.personaName != "")
+            EquippedPersona equippedPersonaScript = player.GetComponent<EquippedPersona>();
+
+            if (equippedPersonaScript != null)
             {
-                persona = equippedPersonaScript.personaName;
+                string equippedPersonaName = equippedPersonaScript.getName();
+
+                if (!string.IsNullOrEmpty(equippedPersonaName))
+                {
+                    Debug.Log("EQUIPPED PERSONA FOUND: " + equippedPersonaName);
+                    
+                    persona = equippedPersonaName;
+                }
             }
-            
         }
     }
 }

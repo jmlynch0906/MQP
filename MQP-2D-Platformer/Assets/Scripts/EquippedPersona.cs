@@ -4,7 +4,6 @@ using System;
 using EmergenceSDK.Internal.Utils;
 using EmergenceSDK.Services;
 using EmergenceSDK.Types;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace EmergenceSDK.Samples.Examples
