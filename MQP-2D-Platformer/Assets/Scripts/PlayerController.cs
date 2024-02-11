@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 5f;
    [SerializeField] public bool isJumping;
     public AudioSource jumpSound;
-    private float vertVal; 
     public float horizontalInput = 0f;
 
     [SerializeField] public float y = 0f;
@@ -36,18 +35,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        vertVal = transform.position.y; 
     }
 
     void Update()
     {
 
-        float vertVal = transform.position.y;
-
-        if (vertVal == y)
-        {
-            isJumping = false;
-        }
         
         // Movement
         horizontalInput = Input.GetAxis("Horizontal");

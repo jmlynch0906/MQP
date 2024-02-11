@@ -10,6 +10,7 @@ TagManager:
   - player bullet
   - player
   - NPC
+  - Persona Manager
   layers:
   - Default
   - TransparentFX

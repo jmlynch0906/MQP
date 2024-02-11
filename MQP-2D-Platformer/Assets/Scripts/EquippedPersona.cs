@@ -13,11 +13,29 @@ namespace EmergenceSDK.Samples.Examples
     {
 
 
-     public Persona p;
+
+        private void Awake()
+        {
+            personaManager pM = FindObjectOfType<personaManager>();
+
+            if (pM != null)
+            {
+
+                if (pM.persona != "")
+                {
+                    personaName = pM.persona;
+                }
+            }
+
+        }
+
+        public Persona p;
 
      public string personaName;
 
      public void SetPersona(Persona playerPersona){
+
+        
         p = playerPersona;
         personaName = p.name;
      }
