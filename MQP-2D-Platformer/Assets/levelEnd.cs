@@ -27,7 +27,9 @@ public class levelEnd : MonoBehaviour
 
     private void Update()
     {
-        currEnemyCount = enemies.Length; 
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        currEnemyCount = enemies.Length;
+        
         Debug.Log("Current Enemy count: " + currEnemyCount);
 
         if(currEnemyCount == 0)
