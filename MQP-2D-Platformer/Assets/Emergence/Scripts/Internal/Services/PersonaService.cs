@@ -94,7 +94,7 @@ namespace EmergenceSDK.Internal.Services
             PersonasResponse personasResponse = SerializationHelper.Deserialize<PersonasResponse>(request.downloadHandler.text);
             WebRequestService.CleanupRequest(request);
             CurrentPersona = personasResponse.personas.FirstOrDefault(p => p.id == personasResponse.selected);
-            //these lines have been added by me, Jack, for the purpose of getting this damn thing to work
+            //lines added to send the persona info to the playerPersona script
             GameObject player = GameObject.Find("Player");
             EquippedPersona playerPersona = player.GetComponent<EquippedPersona>();
             playerPersona.SetPersona(CurrentPersona);

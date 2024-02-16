@@ -9,7 +9,7 @@ public class BadGuyLife : MonoBehaviour
 
     private SpriteRenderer sprite;
   
-    public AudioSource deathSound;
+
 
     private bool isSeen = false;
 
@@ -28,8 +28,6 @@ public class BadGuyLife : MonoBehaviour
 
     private void Die(){
         
-
-        deathSound.Play();
         box.enabled = false;
         sprite.enabled = false;
         Invoke("DestroyEnemy",1f);
